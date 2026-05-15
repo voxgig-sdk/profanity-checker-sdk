@@ -1,0 +1,26 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://www.profanity.dev"
+      }
+      description: "Check text for profanity (filter out bad words). A fast, free and open-source profanity filter for web apps. Much faster and cheaper to run than AI, pretty accurate, and 100% free & open-source."
+      license: {
+        name: "Open Source"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://vector.profanity.dev"
+        }
+      ]
+      title: "Profanity Checker API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

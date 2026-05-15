@@ -1,0 +1,18 @@
+# BasicCheckProfanityFlow
+
+main: kit: flow: BasicCheckProfanityFlow:
+{
+  entity: "check_profanity",
+  kind: "basic",
+  name: "BasicCheckProfanityFlow",
+  step: [
+    {
+      input: {
+        ref: "check_profanity_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicCheckProfanityFlow"
+}

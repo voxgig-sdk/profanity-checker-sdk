@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "check_profanity": {
+      "CHECK_PROFANITY00": {
+        "flagged_word": [],
+        "is_profanity": false,
+        "message": "s2a",
+        "score": 43
+      },
+      "CHECK_PROFANITY01": {
+        "flagged_word": [],
+        "is_profanity": false,
+        "message": "s52",
+        "score": 83
+      },
+      "CHECK_PROFANITY02": {
+        "flagged_word": [],
+        "is_profanity": false,
+        "message": "s7a",
+        "score": 123
+      }
+    }
+  },
+  "new": {
+    "check_profanity": {
+      "check_profanity_ref01": {
+        "flagged_word": [],
+        "is_profanity": false,
+        "message": "sa2",
+        "score": 163
+      }
+    }
+  }
+}

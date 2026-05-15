@@ -1,0 +1,49 @@
+# Entity: check_profanity
+
+main: kit: entity: check_profanity: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "flagged_word"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "is_profanity"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "message"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "score"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  name: "check_profanity"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/"
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

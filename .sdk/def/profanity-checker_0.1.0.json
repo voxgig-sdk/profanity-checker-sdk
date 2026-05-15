@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Profanity Checker API",
+    "description": "Check text for profanity (filter out bad words). A fast, free and open-source profanity filter for web apps. Much faster and cheaper to run than AI, pretty accurate, and 100% free & open-source.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://www.profanity.dev"
+    },
+    "license": {
+      "name": "Open Source"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://vector.profanity.dev",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "Check text for profanity",
+        "description": "Analyzes the provided message text and detects profanity or toxic content. Returns information about whether profanity was detected.",
+        "operationId": "checkProfanity",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "message"
+                ],
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "The text message to check for profanity",
+                    "example": "This is a sample message to check"
+                  }
+                }
+              },
+              "examples": {
+                "clean": {
+                  "summary": "Clean message example",
+                  "value": {
+                    "message": "This is a nice clean message"
+                  }
+                },
+                "profane": {
+                  "summary": "Profane message example",
+                  "value": {
+                    "message": "Hate speech f@#k!ng sucks"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful profanity check response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "isProfanity": {
+                      "type": "boolean",
+                      "description": "Indicates whether profanity was detected in the message"
+                    },
+                    "score": {
+                      "type": "number",
+                      "description": "Confidence score for profanity detection",
+                      "format": "float"
+                    },
+                    "flaggedWords": {
+                      "type": "array",
+                      "description": "List of words that were flagged as profanity",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "clean": {
+                    "summary": "Clean message result",
+                    "value": {
+                      "isProfanity": false,
+                      "score": 0,
+                      "flaggedWords": []
+                    }
+                  },
+                  "profane": {
+                    "summary": "Profane message result",
+                    "value": {
+                      "isProfanity": true,
+                      "score": 0.95,
+                      "flaggedWords": [
+                        "f@#k"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message describing what went wrong"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Message field is required"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Profanity Detection"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Profanity Detection",
+      "description": "Operations for detecting profanity and toxic content in text"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official API Documentation",
+    "url": "https://www.profanity.dev/#api"
+  }
+}
