@@ -5,19 +5,22 @@
         "flagged_word": [],
         "is_profanity": false,
         "message": "s2a",
-        "score": 43
+        "score": 43,
+        "id": "CHECK_PROFANITY00"
       },
       "CHECK_PROFANITY01": {
         "flagged_word": [],
         "is_profanity": false,
         "message": "s52",
-        "score": 83
+        "score": 83,
+        "id": "CHECK_PROFANITY01"
       },
       "CHECK_PROFANITY02": {
         "flagged_word": [],
         "is_profanity": false,
         "message": "s7a",
-        "score": 123
+        "score": 123,
+        "id": "CHECK_PROFANITY02"
       }
     }
   },

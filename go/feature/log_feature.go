@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/profanity-checker-sdk/core"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/core"
 )
 
 type LogFeature struct {

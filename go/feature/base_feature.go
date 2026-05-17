@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/profanity-checker-sdk/core"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/core"
 )
 
 type BaseFeature struct {

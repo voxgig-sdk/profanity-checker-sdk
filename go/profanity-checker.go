@@ -1,10 +1,10 @@
 package voxgigprofanitycheckersdk
 
 import (
-	"github.com/voxgig-sdk/profanity-checker-sdk/core"
-	"github.com/voxgig-sdk/profanity-checker-sdk/entity"
-	"github.com/voxgig-sdk/profanity-checker-sdk/feature"
-	_ "github.com/voxgig-sdk/profanity-checker-sdk/utility"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/core"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/entity"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/feature"
+	_ "github.com/voxgig-sdk/profanity-checker-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

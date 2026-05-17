@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/profanity-checker-sdk"
-	"github.com/voxgig-sdk/profanity-checker-sdk/core"
+	sdk "github.com/voxgig-sdk/profanity-checker-sdk/go"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/profanity-checker-sdk/go/utility/struct"
 )
 
 func TestCheckProfanityEntity(t *testing.T) {

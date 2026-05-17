@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/profanity-checker-sdk/core"
+	"github.com/voxgig-sdk/profanity-checker-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/profanity-checker-sdk/go/utility/struct"
 )
 
 type CheckProfanityEntity struct {
