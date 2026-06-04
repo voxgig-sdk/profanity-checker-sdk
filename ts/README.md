@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { ProfanityCheckerSDK } from 'profanity-checker'
 
-const client = new ProfanityCheckerSDK({
-  apikey: process.env.PROFANITY-CHECKER_APIKEY,
-})
+const client = new ProfanityCheckerSDK({})
 ```
 
 ### 4. Create, update, and remove
@@ -82,7 +80,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ProfanityCheckerSDK({ apikey: '...' })
+const client = new ProfanityCheckerSDK()
 const testClient = client.tester()
 ```
 
@@ -118,7 +116,6 @@ const logger = {
 }
 
 const client = new ProfanityCheckerSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -129,7 +126,6 @@ Create a `.env.local` file at the project root:
 
 ```
 PROFANITY-CHECKER_TEST_LIVE=TRUE
-PROFANITY-CHECKER_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,7 +143,6 @@ cd ts && npm test
 
 ```ts
 new ProfanityCheckerSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -158,7 +153,6 @@ new ProfanityCheckerSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

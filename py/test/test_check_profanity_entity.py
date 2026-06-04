@@ -87,7 +87,6 @@ def _check_profanity_basic_setup(extra):
         "PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID": idmap,
         "PROFANITYCHECKER_TEST_LIVE": "FALSE",
         "PROFANITYCHECKER_TEST_EXPLAIN": "FALSE",
-        "PROFANITYCHECKER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -98,7 +97,6 @@ def _check_profanity_basic_setup(extra):
     if env.get("PROFANITYCHECKER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PROFANITYCHECKER_APIKEY"),
             },
             extra or {},
         ])

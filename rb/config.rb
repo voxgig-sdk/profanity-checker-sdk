@@ -15,9 +15,6 @@ module ProfanityCheckerConfig
       },
       "options" => {
         "base" => "https://vector.profanity.dev",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

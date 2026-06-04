@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from profanitychecker_sdk import ProfanityCheckerSDK
 
-client = ProfanityCheckerSDK({
-    "apikey": os.environ.get("PROFANITY-CHECKER_APIKEY"),
-})
+client = ProfanityCheckerSDK({})
 ```
 
 ### 4. Create, update, and remove
@@ -116,7 +113,6 @@ Create a `.env.local` file at the project root:
 
 ```
 PROFANITY-CHECKER_TEST_LIVE=TRUE
-PROFANITY-CHECKER_APIKEY=<your-key>
 ```
 
 Then run:
@@ -140,7 +136,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
