@@ -10,7 +10,7 @@ The Lua SDK for the ProfanityChecker API — an entity-oriented client using Lua
 
 ## Install
 ```bash
-luarocks install profanity-checker-sdk
+luarocks install voxgig-sdk-profanity-checker
 ```
 
 If the module is not yet published, add the source directory to

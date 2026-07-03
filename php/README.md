@@ -10,7 +10,7 @@ The PHP SDK for the ProfanityChecker API — an entity-oriented client using PHP
 
 ## Install
 ```bash
-composer require voxgig/profanity-checker-sdk
+composer require voxgig-sdk/profanity-checker
 ```
 
 

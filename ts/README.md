@@ -10,7 +10,7 @@ The TypeScript SDK for the ProfanityChecker API — a type-safe, entity-oriented
 
 ## Install
 ```bash
-npm install profanity-checker
+npm install @voxgig-sdk/profanity-checker
 ```
 ## Tutorial: your first API call
 

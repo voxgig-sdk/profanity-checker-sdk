@@ -10,13 +10,13 @@ The Ruby SDK for the ProfanityChecker API — an entity-oriented client using id
 
 ## Install
 ```bash
-gem install profanity-checker-sdk
+gem install voxgig-sdk-profanity-checker
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "profanity-checker-sdk"
+gem "voxgig-sdk-profanity-checker"
 ```
 
 Then run:

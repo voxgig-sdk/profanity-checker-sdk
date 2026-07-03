@@ -10,7 +10,7 @@ The Python SDK for the ProfanityChecker API — an entity-oriented client follow
 
 ## Install
 ```bash
-pip install profanity-checker-sdk
+pip install voxgig-sdk-profanity-checker
 ```
 
 Or install from source:
