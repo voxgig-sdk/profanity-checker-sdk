@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://vector.profanity.dev",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,54 +29,54 @@ def make_config():
       "check_profanity": {
         "fields": [
           {
+            "active": True,
             "name": "flagged_word",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "is_profanity",
             "req": False,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "message",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "score",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "check_profanity",
         "op": {
           "create": {
+            "input": "data",
             "name": "create",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/",
+                "parts": [],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "parts": [],
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "create",
           },
         },

@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'PROFANITY_CHECKER_TEST_CHECK_PROFANITY_ENTID': idmap,
     'PROFANITY_CHECKER_TEST_LIVE': 'FALSE',
     'PROFANITY_CHECKER_TEST_EXPLAIN': 'FALSE',
+    'PROFANITY_CHECKER_APIKEY': 'NONE',
   })
 
   idmap = env['PROFANITY_CHECKER_TEST_CHECK_PROFANITY_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ProfanityCheckerSDK(merge([
       {
+        apikey: env.PROFANITY_CHECKER_APIKEY,
       },
       extra
     ]))

@@ -15,6 +15,9 @@ module ProfanityCheckerConfig
       },
       "options" => {
         "base" => "https://vector.profanity.dev",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -26,54 +29,54 @@ module ProfanityCheckerConfig
         "check_profanity" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "flagged_word",
               "req" => false,
               "type" => "`$ARRAY`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "is_profanity",
               "req" => false,
               "type" => "`$BOOLEAN`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "message",
               "req" => true,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 2,
             },
             {
+              "active" => true,
               "name" => "score",
               "req" => false,
               "type" => "`$NUMBER`",
-              "active" => true,
               "index$" => 3,
             },
           ],
           "name" => "check_profanity",
           "op" => {
             "create" => {
+              "input" => "data",
               "name" => "create",
               "points" => [
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "POST",
                   "orig" => "/",
+                  "parts" => [],
+                  "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "parts" => [],
-                  "args" => {},
-                  "select" => {},
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "create",
             },
           },

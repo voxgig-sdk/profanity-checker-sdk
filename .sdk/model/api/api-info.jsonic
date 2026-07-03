@@ -19,25 +19,7 @@ main: {
       ]
       title: "Profanity Checker API"
       version: "1.0.0"
-      tagline: "Detect profanity in user-submitted text with a fast, vector-based filter"
-      homepage: "https://www.profanity.dev"
-      docs_url: "https://www.profanity.dev"
-      license_short: "Free and open-source (see GitHub: joschan21/profanity.dev)"
-      license_md: `- Free to use, described by the author as "100% free & open-source".
-- Source code is published on GitHub at [joschan21/profanity.dev](https://github.com/joschan21/profanity.dev).
-- No published rate limits, pricing, or attribution requirements; check the repository for the current licence file before redistributing.`
-      about_md: `[Profanity.dev](https://www.profanity.dev) is a free, open-source profanity detection service created by [Josh (joshtriedcoding)](https://github.com/joschan21). It uses a vector-based approach rather than a large language model, which the author positions as a cheaper and faster alternative for filtering toxic content in web applications.
-
-What you get from the API:
-
-- A single POST endpoint at \`https://vector.profanity.dev\` that accepts a JSON body with a \`message\` field.
-- A check of that message against the service's profanity model, returned as JSON.
-
-Operational notes: no API key or authentication is documented. The freepublicapis.com catalogue page notes that CORS is currently disabled, so calls from a browser may need to be proxied through your own backend.`
-      entity_desc: {
-        check_profanity: "Submits a text string for profanity analysis via `POST https://vector.profanity.dev` with a JSON body of the form `{ \"message\": \"...\" }`."
-      }
-      auth: false
     }
   }
 }
+

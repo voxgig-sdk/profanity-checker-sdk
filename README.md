@@ -1,19 +1,8 @@
 # ProfanityChecker SDK
 
-Detect profanity in user-submitted text with a fast, vector-based filter
+Profanity Checker API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Profanity Checker API
-
-[Profanity.dev](https://www.profanity.dev) is a free, open-source profanity detection service created by [Josh (joshtriedcoding)](https://github.com/joschan21). It uses a vector-based approach rather than a large language model, which the author positions as a cheaper and faster alternative for filtering toxic content in web applications.
-
-What you get from the API:
-
-- A single POST endpoint at `https://vector.profanity.dev` that accepts a JSON body with a `message` field.
-- A check of that message against the service's profanity model, returned as JSON.
-
-Operational notes: no API key or authentication is documented. The freepublicapis.com catalogue page notes that CORS is currently disabled, so calls from a browser may need to be proxied through your own backend.
 
 ## Try it
 
@@ -47,27 +36,28 @@ gem install profanity-checker-sdk
 luarocks install profanity-checker-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ProfanityCheckerSDK } from 'profanity-checker'
 
-const client = new ProfanityCheckerSDK({})
+const client = new ProfanityCheckerSDK({
+  apikey: process.env.PROFANITY-CHECKER_APIKEY,
+})
 
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -97,7 +87,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **CheckProfanity** | Submits a text string for profanity analysis via `POST https://vector.profanity.dev` with a JSON body of the form `{ "message": "..." }`. | `/` |
+| **CheckProfanity** |  | `/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -107,9 +97,12 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from profanitychecker_sdk import ProfanityCheckerSDK
 
-client = ProfanityCheckerSDK({})
+client = ProfanityCheckerSDK({
+    "apikey": os.environ.get("PROFANITY-CHECKER_APIKEY"),
+})
 
 ```
 
@@ -119,7 +112,9 @@ client = ProfanityCheckerSDK({})
 <?php
 require_once 'profanitychecker_sdk.php';
 
-$client = new ProfanityCheckerSDK([]);
+$client = new ProfanityCheckerSDK([
+    "apikey" => getenv("PROFANITY-CHECKER_APIKEY"),
+]);
 
 ```
 
@@ -128,7 +123,9 @@ $client = new ProfanityCheckerSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/profanity-checker-sdk/go"
 
-client := sdk.NewProfanityCheckerSDK(map[string]any{})
+client := sdk.NewProfanityCheckerSDK(map[string]any{
+    "apikey": os.Getenv("PROFANITY-CHECKER_APIKEY"),
+})
 
 ```
 
@@ -137,7 +134,9 @@ client := sdk.NewProfanityCheckerSDK(map[string]any{})
 ```ruby
 require_relative "ProfanityChecker_sdk"
 
-client = ProfanityCheckerSDK.new({})
+client = ProfanityCheckerSDK.new({
+  "apikey" => ENV["PROFANITY-CHECKER_APIKEY"],
+})
 
 ```
 
@@ -146,7 +145,9 @@ client = ProfanityCheckerSDK.new({})
 ```lua
 local sdk = require("profanity-checker_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("PROFANITY-CHECKER_APIKEY"),
+})
 
 ```
 
@@ -166,25 +167,21 @@ const result = await client.CheckProfanity().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ProfanityCheckerSDK.test(None, None)
-result, err = client.CheckProfanity(None).load(
-    {"id": "test01"}, None
-)
+client = ProfanityCheckerSDK.test()
+result, err = client.CheckProfanity().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ProfanityCheckerSDK::test(null, null);
-[$result, $err] = $client->CheckProfanity(null)->load(
-    ["id" => "test01"], null
-);
+$client = ProfanityCheckerSDK::test();
+[$result, $err] = $client->CheckProfanity()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.CheckProfanity(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -193,19 +190,15 @@ result, err := client.CheckProfanity(nil).Load(
 ### Ruby
 
 ```ruby
-client = ProfanityCheckerSDK.test(nil, nil)
-result, err = client.CheckProfanity(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ProfanityCheckerSDK.test
+result, err = client.CheckProfanity().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:CheckProfanity(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:CheckProfanity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -309,14 +302,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Profanity Checker API
-
-- Upstream: [https://www.profanity.dev](https://www.profanity.dev)
-
-- Free to use, described by the author as "100% free & open-source".
-- Source code is published on GitHub at [joschan21/profanity.dev](https://github.com/joschan21/profanity.dev).
-- No published rate limits, pricing, or attribution requirements; check the repository for the current licence file before redistributing.
 
 ---
 
