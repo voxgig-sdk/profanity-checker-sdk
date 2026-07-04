@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:check_profanity():list() / client:check_profanity():load({ id = ... })
-function ProfanityCheckerSDK:check_profanity(data)
+-- Idiomatic facade: client:CheckProfanity():list() / client:CheckProfanity():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ProfanityCheckerSDK:CheckProfanity(data)
   local EntityMod = require("entity.check_profanity_entity")
   if data == nil then
     if self._check_profanity == nil then
@@ -253,12 +254,6 @@ function ProfanityCheckerSDK:check_profanity(data)
     end
     return self._check_profanity
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:check_profanity() instead.
-function ProfanityCheckerSDK:CheckProfanity(data)
-  local EntityMod = require("entity.check_profanity_entity")
   return EntityMod.new(self, data)
 end
 

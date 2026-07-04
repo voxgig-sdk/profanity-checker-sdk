@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## CheckProfanityEntity
 
 ```lua
-local check_profanity = client:check_profanity(nil)
+local check_profanity = client:CheckProfanity(nil)
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ local check_profanity = client:check_profanity(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:check_profanity():create({
+local result, err = client:CheckProfanity():create({
   message = --[[ `$STRING` ]],
 })
 ```

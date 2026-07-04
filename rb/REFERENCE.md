@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## CheckProfanityEntity
 
 ```ruby
-check_profanity = client.check_profanity
+check_profanity = client.CheckProfanity
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ check_profanity = client.check_profanity
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.check_profanity.create({
+result = client.CheckProfanity.create({
   "message" => # `$STRING`,
 })
 ```

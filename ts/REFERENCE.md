@@ -109,7 +109,7 @@ Alias for `ProfanityCheckerSDK.test()`.
 ## CheckProfanityEntity
 
 ```ts
-const check_profanity = client.check_profanity
+const check_profanity = client.CheckProfanity()
 ```
 
 ### Fields
@@ -128,7 +128,7 @@ const check_profanity = client.check_profanity
 Create a new entity with the given data.
 
 ```ts
-const result = await client.check_profanity.create({
+const result = await client.CheckProfanity().create({
   message: /* `$STRING` */,
 })
 ```

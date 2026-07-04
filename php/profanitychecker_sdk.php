@@ -233,10 +233,10 @@ class ProfanityCheckerSDK
 
     private $_check_profanity = null;
 
-    // Idiomatic facade: $client->check_profanity()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias CheckProfanity() (PHP method
-    // names are case-insensitive).
-    public function check_profanity($data = null)
+    // Canonical facade: $client->CheckProfanity()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->check_profanity()
+    // resolves here too.
+    public function CheckProfanity($data = null)
     {
         require_once __DIR__ . '/entity/check_profanity_entity.php';
         if ($data === null) {

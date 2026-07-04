@@ -4,25 +4,30 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class CheckProfanity:
+class CheckProfanityRequired(TypedDict):
     message: str
-    flagged_word: Optional[list] = None
-    is_profanity: Optional[bool] = None
-    score: Optional[float] = None
 
 
-@dataclass
-class CheckProfanityCreateData:
-    flagged_word: Optional[list] = None
-    is_profanity: Optional[bool] = None
-    message: Optional[str] = None
-    score: Optional[float] = None
+class CheckProfanity(CheckProfanityRequired, total=False):
+    flagged_word: list
+    is_profanity: bool
+    score: float
 
+
+class CheckProfanityCreateData(TypedDict, total=False):
+    flagged_word: list
+    is_profanity: bool
+    message: str
+    score: float

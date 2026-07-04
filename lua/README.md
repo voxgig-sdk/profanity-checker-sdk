@@ -35,7 +35,8 @@ local client = sdk.new()
 
 ```lua
 -- Create
-local created, _ = client:checkprofanity():create({ name = "Example" })
+local created, err = client:CheckProfanity():create({ name = "Example" })
+if err then error(err) end
 
 ```
 
@@ -82,8 +83,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:checkprofanity():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:CheckProfanity():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -183,17 +184,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local check_profanity, err = client:CheckProfanity():load({ id = "example_id" })
+    if err then error(err) end
+    -- check_profanity is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -217,7 +223,7 @@ API path: `/`
 
 ### CheckProfanity
 
-Create an instance: `const check_profanity = client.check_profanity`
+Create an instance: `local check_profanity = client:CheckProfanity(nil)`
 
 #### Operations
 
@@ -236,9 +242,9 @@ Create an instance: `const check_profanity = client.check_profanity`
 
 #### Example: Create
 
-```ts
-const check_profanity = await client.check_profanity.create({
-  message: /* `$STRING` */,
+```lua
+local check_profanity, err = client:CheckProfanity():create({
+  message = nil, -- `$STRING`
 })
 ```
 
@@ -314,7 +320,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local checkprofanity = client:checkprofanity()
+local checkprofanity = client:CheckProfanity()
 checkprofanity:load({ id = "example_id" })
 
 -- checkprofanity:data_get() now returns the loaded checkprofanity data

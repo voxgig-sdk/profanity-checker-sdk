@@ -128,22 +128,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ProfanityCheckerSDK.test()
-const result = await client.checkprofanity.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const checkprofanity = await client.CheckProfanity().load({ id: 'test01' })
+// checkprofanity is a bare CheckProfanity populated with mock data
+console.log(checkprofanity)
 ```
 
 ### Python
 
 ```python
 client = ProfanityCheckerSDK.test()
-result = client.checkprofanity.load({"id": "test01"})
+checkprofanity = client.CheckProfanity().load({"id": "test01"})
+print(checkprofanity)
 ```
 
 ### PHP
 
 ```php
-$client = ProfanityCheckerSDK::test();
-$result = $client->checkprofanity()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ProfanityCheckerSDK::test([
+    "entity" => ["checkprofanity" => ["test01" => ["id" => "test01"]]],
+]);
+$checkprofanity = $client->CheckProfanity()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -158,15 +163,18 @@ result, err := client.CheckProfanity(nil).Load(
 ### Ruby
 
 ```ruby
-client = ProfanityCheckerSDK.test
-result = client.checkprofanity.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ProfanityCheckerSDK.test({
+  "entity" => { "checkprofanity" => { "test01" => { "id" => "test01" } } },
+})
+checkprofanity = client.CheckProfanity.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:checkprofanity():load({ id = "test01" })
+local result, err = client:CheckProfanity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -214,6 +222,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

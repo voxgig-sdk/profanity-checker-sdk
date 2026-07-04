@@ -220,25 +220,15 @@ class ProfanityCheckerSDK:
         }
 
 
-    @property
-    def check_profanity(self):
-        """Idiomatic facade: client.check_profanity.list() / client.check_profanity.load({"id": ...})."""
-        from entity.check_profanity_entity import CheckProfanityEntity
-        cached = getattr(self, "_check_profanity", None)
-        if cached is None:
-            cached = CheckProfanityEntity(self, None)
-            self._check_profanity = cached
-        return cached
-
-    def CheckProfanity(self, data=None):
-        # Deprecated: use client.check_profanity instead.
+    def CheckProfanity(self, data=None) -> "CheckProfanityEntity":
+        """Entity factory: client.CheckProfanity().list({}) / client.CheckProfanity().load({"id": ...})."""
         from entity.check_profanity_entity import CheckProfanityEntity
         return CheckProfanityEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ProfanityCheckerSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class ProfanityCheckerSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.check_profanity_entity import CheckProfanityEntity

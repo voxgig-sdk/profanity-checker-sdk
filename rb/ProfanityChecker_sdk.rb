@@ -208,13 +208,7 @@ class ProfanityCheckerSDK
   end
 
 
-  # Idiomatic facade: client.check_profanity.list / client.check_profanity.load({ "id" => ... })
-  def check_profanity
-    require_relative 'entity/check_profanity_entity'
-    @check_profanity ||= CheckProfanityEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.check_profanity instead.
+  # Canonical facade: client.CheckProfanity.list / client.CheckProfanity.load({ "id" => ... })
   def CheckProfanity(data = nil)
     require_relative 'entity/check_profanity_entity'
     CheckProfanityEntity.new(self, data)

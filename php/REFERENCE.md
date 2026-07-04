@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CheckProfanityEntity
 
 ```php
-$check_profanity = $client->check_profanity();
+$check_profanity = $client->CheckProfanity();
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ $check_profanity = $client->check_profanity();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->check_profanity()->create([
+$result = $client->CheckProfanity()->create([
   "message" => /* `$STRING` */,
 ]);
 ```

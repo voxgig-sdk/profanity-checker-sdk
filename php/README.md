@@ -32,8 +32,8 @@ $client = new ProfanityCheckerSDK();
 ### 4. Create, update, and remove
 
 ```php
-// Create
-$created = $client->checkprofanity()->create(["name" => "Example"]);
+// create() returns the bare created CheckProfanity record.
+$created = $client->CheckProfanity()->create(["name" => "Example"]);
 
 ```
 
@@ -78,13 +78,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ProfanityCheckerSDK::test();
+$client = ProfanityCheckerSDK::test([
+    "entity" => ["checkprofanity" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->checkprofanity()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$checkprofanity = $client->CheckProfanity()->load(["id" => "test01"]);
+print_r($checkprofanity);
 ```
 
 ### Use a custom fetch function
@@ -223,7 +227,7 @@ API path: `/`
 
 ### CheckProfanity
 
-Create an instance: `const check_profanity = client.check_profanity`
+Create an instance: `$check_profanity = $client->CheckProfanity();`
 
 #### Operations
 
@@ -242,10 +246,10 @@ Create an instance: `const check_profanity = client.check_profanity`
 
 #### Example: Create
 
-```ts
-const check_profanity = await client.check_profanity.create({
-  message: /* `$STRING` */,
-})
+```php
+$check_profanity = $client->CheckProfanity()->create([
+    "message" => null, // `$STRING`
+]);
 ```
 
 
@@ -320,7 +324,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$checkprofanity = $client->checkprofanity();
+$checkprofanity = $client->CheckProfanity();
 $checkprofanity->load(["id" => "example_id"]);
 
 // $checkprofanity->dataGet() now returns the loaded checkprofanity data

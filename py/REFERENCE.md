@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CheckProfanityEntity
 
 ```python
-check_profanity = client.check_profanity
+check_profanity = client.CheckProfanity()
 ```
 
 ### Fields
@@ -99,8 +99,8 @@ check_profanity = client.check_profanity
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.check_profanity.create({
-    "message": # `$STRING`,
+result = client.CheckProfanity().create({
+    "message": ...,  # `$STRING`
 })
 ```
 
