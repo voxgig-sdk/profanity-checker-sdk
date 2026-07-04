@@ -245,6 +245,9 @@ func (sdk *ProfanityCheckerSDK) Direct(fetchargs map[string]any) (map[string]any
 }
 
 
+// CheckProfanity returns a CheckProfanity entity bound to this client.
+// Idiomatic usage: client.CheckProfanity(nil).List(nil, nil) or
+// client.CheckProfanity(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ProfanityCheckerSDK) CheckProfanity(data map[string]any) ProfanityCheckerEntity {
 	return NewCheckProfanityEntityFunc(sdk, data)
 }

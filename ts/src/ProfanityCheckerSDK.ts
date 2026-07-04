@@ -2,6 +2,8 @@
 
 import { CheckProfanityEntity } from './entity/CheckProfanityEntity'
 
+export type * from './ProfanityCheckerTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class ProfanityCheckerSDK {
 
 
 
+  _check_profanity?: CheckProfanityEntity
+
+  // Idiomatic facade: `client.check_profanity.list()` / `client.check_profanity.load({ id })`.
+  get check_profanity(): CheckProfanityEntity {
+    return (this._check_profanity ??= new CheckProfanityEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.check_profanity` instead. */
   CheckProfanity(data?: any) {
     const self = this
     return new CheckProfanityEntity(self,data)

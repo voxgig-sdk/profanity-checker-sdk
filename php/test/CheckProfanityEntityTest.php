@@ -43,8 +43,7 @@ class CheckProfanityEntityTest extends TestCase
         $check_profanity_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.check_profanity"), "check_profanity_ref01"));
 
-        [$check_profanity_ref01_data_result, $err] = $check_profanity_ref01_ent->create($check_profanity_ref01_data, null);
-        $this->assertNull($err);
+        $check_profanity_ref01_data_result = $check_profanity_ref01_ent->create($check_profanity_ref01_data, null);
         $check_profanity_ref01_data = Helpers::to_map($check_profanity_ref01_data_result);
         $this->assertNotNull($check_profanity_ref01_data);
 
@@ -80,7 +79,6 @@ function check_profanity_basic_setup($extra)
         "PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID" => $idmap,
         "PROFANITYCHECKER_TEST_LIVE" => "FALSE",
         "PROFANITYCHECKER_TEST_EXPLAIN" => "FALSE",
-        "PROFANITYCHECKER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -92,7 +90,6 @@ function check_profanity_basic_setup($extra)
     if ($env["PROFANITYCHECKER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["PROFANITYCHECKER_APIKEY"],
             ],
             $extra ?? [],
         ]);

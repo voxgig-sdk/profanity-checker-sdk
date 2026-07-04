@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  CheckProfanity,
+  CheckProfanityCreateData,
+} from '../ProfanityCheckerTypes'
 
 // TODO: needs Entity superclass
-class CheckProfanityEntity extends ProfanityCheckerEntityBase {
+class CheckProfanityEntity extends ProfanityCheckerEntityBase<CheckProfanity> {
 
   constructor(client: ProfanityCheckerSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class CheckProfanityEntity extends ProfanityCheckerEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: CheckProfanityCreateData, ctrl?: Control): Promise<CheckProfanity> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class CheckProfanityEntity extends ProfanityCheckerEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<CheckProfanity> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

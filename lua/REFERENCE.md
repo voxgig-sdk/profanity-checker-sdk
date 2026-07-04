@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## CheckProfanityEntity
 
 ```lua
-local check_profanity = client:CheckProfanity(nil)
+local check_profanity = client:check_profanity(nil)
 ```
 
 ### Fields
@@ -103,7 +102,7 @@ local check_profanity = client:CheckProfanity(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:CheckProfanity():create({
+local result, err = client:check_profanity():create({
   message = --[[ `$STRING` ]],
 })
 ```

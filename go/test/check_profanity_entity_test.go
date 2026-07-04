@@ -110,7 +110,6 @@ func check_profanityBasicSetup(extra map[string]any) *entityTestSetup {
 		"PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID": idmap,
 		"PROFANITYCHECKER_TEST_LIVE":      "FALSE",
 		"PROFANITYCHECKER_TEST_EXPLAIN":   "FALSE",
-		"PROFANITYCHECKER_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID"])
@@ -121,7 +120,6 @@ func check_profanityBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["PROFANITYCHECKER_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["PROFANITYCHECKER_APIKEY"],
 			},
 			extra,
 		})

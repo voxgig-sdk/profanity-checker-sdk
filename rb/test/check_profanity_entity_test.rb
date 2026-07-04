@@ -36,8 +36,7 @@ class CheckProfanityEntityTest < Minitest::Test
     check_profanity_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.check_profanity"), "check_profanity_ref01"))
 
-    check_profanity_ref01_data_result, err = check_profanity_ref01_ent.create(check_profanity_ref01_data, nil)
-    assert_nil err
+    check_profanity_ref01_data_result = check_profanity_ref01_ent.create(check_profanity_ref01_data, nil)
     check_profanity_ref01_data = Helpers.to_map(check_profanity_ref01_data_result)
     assert !check_profanity_ref01_data.nil?
 
@@ -77,7 +76,6 @@ def check_profanity_basic_setup(extra)
     "PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID" => idmap,
     "PROFANITYCHECKER_TEST_LIVE" => "FALSE",
     "PROFANITYCHECKER_TEST_EXPLAIN" => "FALSE",
-    "PROFANITYCHECKER_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -89,7 +87,6 @@ def check_profanity_basic_setup(extra)
   if env["PROFANITYCHECKER_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["PROFANITYCHECKER_APIKEY"],
       },
       extra || {},
     ])

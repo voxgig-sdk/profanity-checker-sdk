@@ -45,6 +45,7 @@ class CheckProfanityEntity
     end
   end
 
+  # @return [CheckProfanity, Hash] the current CheckProfanity data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class CheckProfanityEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of CheckProfanity fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -67,6 +69,11 @@ class CheckProfanityEntity
   
 
   
+  # Create a new CheckProfanity.
+  #
+  # @param reqdata [CheckProfanityCreateData, Hash, nil] body data
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [CheckProfanity, Hash] the created CheckProfanity; raises ProfanityCheckerError on failure
   def create(reqdata, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

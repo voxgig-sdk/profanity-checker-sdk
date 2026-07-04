@@ -1,7 +1,13 @@
 # ProfanityChecker SDK CheckProfanity entity
 
+from __future__ import annotations
+
 from utility.voxgig_struct import voxgig_struct as vs
 from core import helpers
+from profanitychecker_types import (
+    CheckProfanity,
+    CheckProfanityCreateData,
+)
 
 
 class CheckProfanityEntity:
@@ -44,7 +50,7 @@ class CheckProfanityEntity:
             self._data = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetData")
 
-    def data_get(self):
+    def data_get(self) -> CheckProfanity:
         self._utility.feature_hook(self._entctx, "GetData")
         return vs.clone(self._data)
 
@@ -53,7 +59,7 @@ class CheckProfanityEntity:
             self._match = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetMatch")
 
-    def match_get(self):
+    def match_get(self) -> CheckProfanity:
         self._utility.feature_hook(self._entctx, "GetMatch")
         return vs.clone(self._match)
 
@@ -62,7 +68,7 @@ class CheckProfanityEntity:
     
 
     
-    def create(self, reqdata, ctrl=None):
+    def create(self, reqdata: CheckProfanityCreateData, ctrl=None) -> CheckProfanity:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "create",

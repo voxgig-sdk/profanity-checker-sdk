@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata CheckProfanityCreateData
+---@param ctrl? table
+---@return CheckProfanity
+---@return string? err
 function CheckProfanityEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

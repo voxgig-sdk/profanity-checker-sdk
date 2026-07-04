@@ -44,9 +44,7 @@ class TestCheckProfanityEntity:
         check_profanity_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.check_profanity"), "check_profanity_ref01"))
 
-        check_profanity_ref01_data_result, err = check_profanity_ref01_ent.create(check_profanity_ref01_data, None)
-        assert err is None
-        check_profanity_ref01_data = helpers.to_map(check_profanity_ref01_data_result)
+        check_profanity_ref01_data = helpers.to_map(check_profanity_ref01_ent.create(check_profanity_ref01_data, None))
         assert check_profanity_ref01_data is not None
 
 
@@ -87,7 +85,6 @@ def _check_profanity_basic_setup(extra):
         "PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID": idmap,
         "PROFANITYCHECKER_TEST_LIVE": "FALSE",
         "PROFANITYCHECKER_TEST_EXPLAIN": "FALSE",
-        "PROFANITYCHECKER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -98,7 +95,6 @@ def _check_profanity_basic_setup(extra):
     if env.get("PROFANITYCHECKER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PROFANITYCHECKER_APIKEY"),
             },
             extra or {},
         ])

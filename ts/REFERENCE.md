@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `ProfanityCheckerSDK.test()`.
 ## CheckProfanityEntity
 
 ```ts
-const check_profanity = client.CheckProfanity()
+const check_profanity = client.check_profanity
 ```
 
 ### Fields
@@ -129,7 +128,7 @@ const check_profanity = client.CheckProfanity()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.CheckProfanity().create({
+const result = await client.check_profanity.create({
   message: /* `$STRING` */,
 })
 ```
