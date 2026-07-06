@@ -16,12 +16,11 @@ type CheckProfanity struct {
 	Score *float64 `json:"score,omitempty"`
 }
 
-// CheckProfanityCreateData mirrors the check_profanity fields as an all-optional match
-// filter (Go analog of Partial<CheckProfanity>).
+// CheckProfanityCreateData is the typed request payload for CheckProfanity.CreateTyped.
 type CheckProfanityCreateData struct {
 	FlaggedWord *[]any `json:"flagged_word,omitempty"`
 	IsProfanity *bool `json:"is_profanity,omitempty"`
-	Message *string `json:"message,omitempty"`
+	Message string `json:"message"`
 	Score *float64 `json:"score,omitempty"`
 }
 

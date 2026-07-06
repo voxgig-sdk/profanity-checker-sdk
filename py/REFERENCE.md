@@ -8,7 +8,7 @@ Complete API reference for the ProfanityChecker Python SDK.
 ### Constructor
 
 ```python
-from profanity-checker_sdk import ProfanityCheckerSDK
+from profanitychecker_sdk import ProfanityCheckerSDK
 
 client = ProfanityCheckerSDK(options)
 ```
@@ -87,10 +87,10 @@ check_profanity = client.CheckProfanity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | ``$ARRAY`` | No |  |
-| `is_profanity` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | Yes |  |
-| `score` | ``$NUMBER`` | No |  |
+| `flagged_word` | `list` | No |  |
+| `is_profanity` | `bool` | No |  |
+| `message` | `str` | Yes |  |
+| `score` | `float` | No |  |
 
 ### Operations
 
@@ -100,7 +100,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.CheckProfanity().create({
-    "message": ...,  # `$STRING`
+    "message": "example",  # str
 })
 ```
 

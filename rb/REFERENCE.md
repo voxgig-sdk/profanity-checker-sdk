@@ -8,7 +8,7 @@ Complete API reference for the ProfanityChecker Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'profanity-checker_sdk'
+require_relative 'ProfanityChecker_sdk'
 
 client = ProfanityCheckerSDK.new(options)
 ```
@@ -93,10 +93,10 @@ check_profanity = client.CheckProfanity
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | ``$ARRAY`` | No |  |
-| `is_profanity` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | Yes |  |
-| `score` | ``$NUMBER`` | No |  |
+| `flagged_word` | `Array` | No |  |
+| `is_profanity` | `Boolean` | No |  |
+| `message` | `String` | Yes |  |
+| `score` | `Float` | No |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.CheckProfanity.create({
-  "message" => # `$STRING`,
+  "message" => "example", # String
 })
 ```
 

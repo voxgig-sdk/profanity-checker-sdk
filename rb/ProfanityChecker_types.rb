@@ -29,7 +29,7 @@ CheckProfanity = Struct.new(
   keyword_init: true
 )
 
-# Match filter for CheckProfanity#create (any subset of CheckProfanity fields).
+# Request payload for CheckProfanity#create.
 #
 # @!attribute [rw] flagged_word
 #   @return [Array, nil]
@@ -38,7 +38,7 @@ CheckProfanity = Struct.new(
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] message
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] score
 #   @return [Float, nil]

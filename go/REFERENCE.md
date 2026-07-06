@@ -97,10 +97,10 @@ check_profanity := client.CheckProfanity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | ``$ARRAY`` | No |  |
-| `is_profanity` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | Yes |  |
-| `score` | ``$NUMBER`` | No |  |
+| `flagged_word` | `[]any` | No |  |
+| `is_profanity` | `bool` | No |  |
+| `message` | `string` | Yes |  |
+| `score` | `float64` | No |  |
 
 ### Operations
 
@@ -110,7 +110,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.CheckProfanity(nil).Create(map[string]any{
-    "message": /* `$STRING` */,
+    "message": /* string */,
 }, nil)
 ```
 

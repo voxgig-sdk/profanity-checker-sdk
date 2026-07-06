@@ -116,10 +116,10 @@ const check_profanity = client.CheckProfanity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | ``$ARRAY`` | No |  |
-| `is_profanity` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | Yes |  |
-| `score` | ``$NUMBER`` | No |  |
+| `flagged_word` | `any[]` | No |  |
+| `is_profanity` | `boolean` | No |  |
+| `message` | `string` | Yes |  |
+| `score` | `number` | No |  |
 
 ### Operations
 
@@ -129,7 +129,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.CheckProfanity().create({
-  message: /* `$STRING` */,
+  message: /* string */,
 })
 ```
 

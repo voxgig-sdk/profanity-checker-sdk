@@ -21,12 +21,12 @@ class CheckProfanity
     public ?float $score = null;
 }
 
-/** Match filter for CheckProfanity#create (any subset of CheckProfanity fields). */
+/** Request payload for CheckProfanity#create. */
 class CheckProfanityCreateData
 {
     public ?array $flagged_word = null;
     public ?bool $is_profanity = null;
-    public ?string $message = null;
+    public string $message;
     public ?float $score = null;
 }
 

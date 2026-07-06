@@ -13,6 +13,10 @@
 ---@field score? number
 
 ---@class CheckProfanityCreateData
+---@field flagged_word? table
+---@field is_profanity? boolean
+---@field message string
+---@field score? number
 
 local M = {}
 

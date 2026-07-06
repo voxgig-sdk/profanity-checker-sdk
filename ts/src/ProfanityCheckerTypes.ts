@@ -12,5 +12,10 @@ export interface CheckProfanity {
   score?: number
 }
 
-export type CheckProfanityCreateData = Partial<CheckProfanity>
+export interface CheckProfanityCreateData {
+  flagged_word?: any[]
+  is_profanity?: boolean
+  message: string
+  score?: number
+}
 

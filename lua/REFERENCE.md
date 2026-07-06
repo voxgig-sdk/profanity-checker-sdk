@@ -90,10 +90,10 @@ local check_profanity = client:CheckProfanity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | ``$ARRAY`` | No |  |
-| `is_profanity` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | Yes |  |
-| `score` | ``$NUMBER`` | No |  |
+| `flagged_word` | `table` | No |  |
+| `is_profanity` | `boolean` | No |  |
+| `message` | `string` | Yes |  |
+| `score` | `number` | No |  |
 
 ### Operations
 
@@ -103,7 +103,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:CheckProfanity():create({
-  message = --[[ `$STRING` ]],
+  message = --[[ string ]],
 })
 ```
 

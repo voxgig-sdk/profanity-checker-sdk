@@ -221,7 +221,7 @@ class ProfanityCheckerSDK:
 
 
     def CheckProfanity(self, data=None) -> "CheckProfanityEntity":
-        """Entity factory: client.CheckProfanity().list({}) / client.CheckProfanity().load({"id": ...})."""
+        """Entity factory: client.CheckProfanity().list() / client.CheckProfanity().load({"id": ...})."""
         from entity.check_profanity_entity import CheckProfanityEntity
         return CheckProfanityEntity(self, data)
 
