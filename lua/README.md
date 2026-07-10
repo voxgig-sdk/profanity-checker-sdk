@@ -37,7 +37,7 @@ local client = sdk.new()
 
 ```lua
 -- Create
-local created, err = client:CheckProfanity():create({ message = "example" })
+local created, err = client:CheckProfanity():create({ message = "example_message" })
 if err then error(err) end
 
 ```
@@ -263,7 +263,7 @@ Create an instance: `local check_profanity = client:CheckProfanity(nil)`
 
 ```lua
 local check_profanity, err = client:CheckProfanity():create({
-  message = nil, -- string
+  message = "example_message", -- string
 })
 ```
 

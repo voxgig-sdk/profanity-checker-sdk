@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## CheckProfanityEntity
 
 ```go
-check_profanity := client.CheckProfanity(nil)
+checkProfanity := client.CheckProfanity(nil)
+fmt.Println(checkProfanity.GetName()) // "check_profanity"
 ```
 
 ### Fields
@@ -110,8 +111,12 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.CheckProfanity(nil).Create(map[string]any{
-    "message": /* string */,
+    "message": "example_message",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

@@ -35,7 +35,7 @@ $client = new ProfanityCheckerSDK();
 
 ```php
 // create() returns the bare created CheckProfanity record.
-$created = $client->CheckProfanity()->create(["message" => "example"]);
+$created = $client->CheckProfanity()->create(["message" => "example_message"]);
 
 ```
 

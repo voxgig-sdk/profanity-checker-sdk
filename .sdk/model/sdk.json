@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -204,14 +201,17 @@
         "license": {
           "name": "Open Source"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://vector.profanity.dev"
           }
         ],
+        "summary": "Check text for profanity (filter out bad words).",
         "title": "Profanity Checker API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.profanity.dev/#api"
       },
       "option": {},
       "target": {
@@ -264,6 +264,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -314,6 +317,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -318,7 +318,7 @@ Create an instance: `const check_profanity = client.CheckProfanity()`
 
 ```ts
 const check_profanity = await client.CheckProfanity().create({
-  message: /* string */,
+  message: 'example_message',
 })
 ```
 

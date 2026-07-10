@@ -18,9 +18,9 @@ main: {
           url: "https://vector.profanity.dev"
         }
       ]
+      summary: "Check text for profanity (filter out bad words)."
       title: "Profanity Checker API"
       version: "1.0.0"
+      website: "https://www.profanity.dev/#api"
     }
   }
-}
-

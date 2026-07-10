@@ -34,7 +34,7 @@ client = ProfanityCheckerSDK.new
 
 ```ruby
 # create returns the bare created CheckProfanity record.
-created = client.CheckProfanity.create({ "message" => "example" })
+created = client.CheckProfanity.create({ "message" => "example_message" })
 
 ```
 
@@ -267,7 +267,7 @@ Create an instance: `check_profanity = client.CheckProfanity`
 
 ```ruby
 check_profanity = client.CheckProfanity.create({
-  "message" => "example", # String
+  "message" => "example_message", # String
 })
 ```
 

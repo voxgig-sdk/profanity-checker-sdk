@@ -50,8 +50,8 @@ import (
 func main() {
     client := sdk.New()
 
-    // Create a checkprofanity.
-    created, err := client.CheckProfanity(nil).Create(map[string]any{"message": "example"}, nil)
+    // Create a checkProfanity.
+    created, err := client.CheckProfanity(nil).Create(map[string]any{"message": "example_message"}, nil)
     if err != nil {
         panic(err)
     }
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-checkprofanity, err := client.CheckProfanity(nil).Create(
+checkProfanity, err := client.CheckProfanity(nil).Create(
     map[string]any{"message": "example"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(checkprofanity) // the returned mock data
+fmt.Println(checkProfanity) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    checkprofanity, err := client.CheckProfanity(nil).Create(map[string]any{/* fields */}, nil)
+    checkProfanity, err := client.CheckProfanity(nil).Create(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // checkprofanity is the returned record
+    // checkProfanity is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -274,7 +274,7 @@ API path: `/`
 
 ### CheckProfanity
 
-Create an instance: `check_profanity := client.CheckProfanity(nil)`
+Create an instance: `checkProfanity := client.CheckProfanity(nil)`
 
 #### Operations
 
@@ -295,8 +295,12 @@ Create an instance: `check_profanity := client.CheckProfanity(nil)`
 
 ```go
 result, err := client.CheckProfanity(nil).Create(map[string]any{
-    "message": /* string */,
+    "message": "example_message",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 

@@ -40,7 +40,7 @@ client = ProfanityCheckerSDK()
 
 ```python
 # Create — returns the bare created record (a dict)
-created = client.CheckProfanity().create({"message": "example"})
+created = client.CheckProfanity().create({"message": "example_message"})
 
 ```
 
@@ -273,7 +273,7 @@ Create an instance: `check_profanity = client.CheckProfanity()`
 
 ```python
 check_profanity = client.CheckProfanity().create({
-    "message": "example",  # str
+    "message": "example_message",  # str
 })
 ```
 
