@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- ProfanityChecker SDK exists test
 
 local sdk = require("profanity-checker_sdk")
 
