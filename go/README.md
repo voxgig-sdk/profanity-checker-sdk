@@ -258,8 +258,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"flagged_word"` |  |
-| `"is_profanity"` |  |
+| `"flaggedWords"` |  |
+| `"isProfanity"` |  |
 | `"message"` |  |
 | `"score"` |  |
 
@@ -286,8 +286,8 @@ Create an instance: `checkProfanity := client.CheckProfanity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flagged_word` | `[]any` |  |
-| `is_profanity` | `bool` |  |
+| `flaggedWords` | `[]any` |  |
+| `isProfanity` | `bool` |  |
 | `message` | `string` |  |
 | `score` | `float64` |  |
 

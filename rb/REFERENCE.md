@@ -93,8 +93,8 @@ check_profanity = client.CheckProfanity
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | `Array` | No |  |
-| `is_profanity` | `Boolean` | No |  |
+| `flaggedWords` | `Array` | No |  |
+| `isProfanity` | `Boolean` | No |  |
 | `message` | `String` | Yes |  |
 | `score` | `Float` | No |  |
 

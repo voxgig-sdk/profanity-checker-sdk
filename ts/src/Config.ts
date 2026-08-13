@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'ProfanityChecker',
   }
 
 
@@ -56,14 +56,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "flagged_word",
+          "name": "flaggedWords",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "is_profanity",
+          "name": "isProfanity",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 1
@@ -92,6 +92,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "POST",
               "orig": "/",
               "parts": [],

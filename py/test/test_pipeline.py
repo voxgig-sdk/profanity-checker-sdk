@@ -16,11 +16,11 @@
 import pytest
 
 from profanitychecker_sdk import ProfanityCheckerSDK
-from core.error import ProfanityCheckerError
-from core.result import ProfanityCheckerResult
-from core.response import ProfanityCheckerResponse
-from core.spec import ProfanityCheckerSpec
-from feature.base_feature import ProfanityCheckerBaseFeature
+from profanitychecker_sdk.core.error import ProfanityCheckerError
+from profanitychecker_sdk.core.result import ProfanityCheckerResult
+from profanitychecker_sdk.core.response import ProfanityCheckerResponse
+from profanitychecker_sdk.core.spec import ProfanityCheckerSpec
+from profanitychecker_sdk.feature.base_feature import ProfanityCheckerBaseFeature
 
 
 def _client():

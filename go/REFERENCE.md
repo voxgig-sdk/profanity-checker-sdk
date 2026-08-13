@@ -98,8 +98,8 @@ fmt.Println(checkProfanity.GetName()) // "check_profanity"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | `[]any` | No |  |
-| `is_profanity` | `bool` | No |  |
+| `flaggedWords` | `[]any` | No |  |
+| `isProfanity` | `bool` | No |  |
 | `message` | `string` | Yes |  |
 | `score` | `float64` | No |  |
 

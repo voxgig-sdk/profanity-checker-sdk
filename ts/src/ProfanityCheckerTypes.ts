@@ -6,15 +6,15 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface CheckProfanity {
-  flagged_word?: any[]
-  is_profanity?: boolean
+  flaggedWords?: any[]
+  isProfanity?: boolean
   message: string
   score?: number
 }
 
 export interface CheckProfanityCreateData {
-  flagged_word?: any[]
-  is_profanity?: boolean
+  flaggedWords?: any[]
+  isProfanity?: boolean
   message: string
   score?: number
 }

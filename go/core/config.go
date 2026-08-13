@@ -26,14 +26,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "flagged_word",
+						"name": "flaggedWords",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "is_profanity",
+						"name": "isProfanity",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 1,
@@ -62,6 +62,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/",
 								"parts": []any{},
@@ -73,7 +74,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 				},
 				"relations": map[string]any{

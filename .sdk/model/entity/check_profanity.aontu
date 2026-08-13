@@ -6,12 +6,12 @@ main: kit: entity: check_profanity: {
 
   fields: [
     {
-      name: "flagged_word"
+      name: "flaggedWords"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "is_profanity"
+      name: "isProfanity"
       req: false
       type: "`$BOOLEAN`"
     }

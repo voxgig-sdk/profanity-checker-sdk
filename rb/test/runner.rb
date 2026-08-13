@@ -23,8 +23,8 @@ module ProfanityCheckerTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("PROFANITYCHECKER_TEST_LIVE")
-    override = getenv("PROFANITYCHECKER_TEST_OVERRIDE")
+    live = getenv("PROFANITY_CHECKER_TEST_LIVE")
+    override = getenv("PROFANITY_CHECKER_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module ProfanityCheckerTestRunner
       end
     end
 
-    explain = getenv("PROFANITYCHECKER_TEST_EXPLAIN")
-    m["PROFANITYCHECKER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("PROFANITY_CHECKER_TEST_EXPLAIN")
+    m["PROFANITY_CHECKER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

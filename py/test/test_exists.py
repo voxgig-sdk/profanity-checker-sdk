@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# ProfanityChecker SDK exists test
 
 import pytest
 from profanitychecker_sdk import ProfanityCheckerSDK

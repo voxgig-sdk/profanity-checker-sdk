@@ -39,7 +39,7 @@ client = ProfanityCheckerSDK()
 ### 4. Create, update, and remove
 
 ```python
-# Create — returns the bare created record (a dict)
+# Create — returns the ENTITY (call data_get() for the record)
 created = client.CheckProfanity().create({"message": "example_message"})
 
 ```
@@ -118,7 +118,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ProfanityCheckerSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 checkprofanity = client.CheckProfanity().create({"message": "example"})
 # checkprofanity contains the mock response record
 ```
@@ -214,7 +215,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -236,8 +237,8 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `flagged_word` |  |
-| `is_profanity` |  |
+| `flaggedWords` |  |
+| `isProfanity` |  |
 | `message` |  |
 | `score` |  |
 
@@ -264,8 +265,8 @@ Create an instance: `check_profanity = client.CheckProfanity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flagged_word` | `list` |  |
-| `is_profanity` | `bool` |  |
+| `flaggedWords` | `list` |  |
+| `isProfanity` | `bool` |  |
 | `message` | `str` |  |
 | `score` | `float` |  |
 

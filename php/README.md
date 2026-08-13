@@ -34,7 +34,7 @@ $client = new ProfanityCheckerSDK();
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created CheckProfanity record.
+// create() returns the ENTITY — call data_get() for the created CheckProfanity record.
 $created = $client->CheckProfanity()->create(["message" => "example_message"]);
 
 ```
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ProfanityCheckerSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $checkprofanity = $client->CheckProfanity()->create(["message" => "example"]);
 print_r($checkprofanity);
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -240,8 +241,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `flagged_word` |  |
-| `is_profanity` |  |
+| `flaggedWords` |  |
+| `isProfanity` |  |
 | `message` |  |
 | `score` |  |
 
@@ -268,8 +269,8 @@ Create an instance: `$check_profanity = $client->CheckProfanity();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flagged_word` | `array` |  |
-| `is_profanity` | `bool` |  |
+| `flaggedWords` | `array` |  |
+| `isProfanity` | `bool` |  |
 | `message` | `string` |  |
 | `score` | `float` |  |
 

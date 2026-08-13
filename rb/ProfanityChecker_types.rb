@@ -10,10 +10,10 @@
 
 # CheckProfanity entity data model.
 #
-# @!attribute [rw] flagged_word
+# @!attribute [rw] flaggedWords
 #   @return [Array, nil]
 #
-# @!attribute [rw] is_profanity
+# @!attribute [rw] isProfanity
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] message
@@ -22,8 +22,8 @@
 # @!attribute [rw] score
 #   @return [Float, nil]
 CheckProfanity = Struct.new(
-  :flagged_word,
-  :is_profanity,
+  :flaggedWords,
+  :isProfanity,
   :message,
   :score,
   keyword_init: true
@@ -31,10 +31,10 @@ CheckProfanity = Struct.new(
 
 # Request payload for CheckProfanity#create.
 #
-# @!attribute [rw] flagged_word
+# @!attribute [rw] flaggedWords
 #   @return [Array, nil]
 #
-# @!attribute [rw] is_profanity
+# @!attribute [rw] isProfanity
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] message
@@ -43,8 +43,8 @@ CheckProfanity = Struct.new(
 # @!attribute [rw] score
 #   @return [Float, nil]
 CheckProfanityCreateData = Struct.new(
-  :flagged_word,
-  :is_profanity,
+  :flaggedWords,
+  :isProfanity,
   :message,
   :score,
   keyword_init: true

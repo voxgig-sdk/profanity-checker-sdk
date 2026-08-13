@@ -15,8 +15,8 @@ declare(strict_types=1);
 /** CheckProfanity entity data model. */
 class CheckProfanity
 {
-    public ?array $flagged_word = null;
-    public ?bool $is_profanity = null;
+    public ?array $flaggedWords = null;
+    public ?bool $isProfanity = null;
     public string $message;
     public ?float $score = null;
 }
@@ -24,8 +24,8 @@ class CheckProfanity
 /** Request payload for CheckProfanity#create. */
 class CheckProfanityCreateData
 {
-    public ?array $flagged_word = null;
-    public ?bool $is_profanity = null;
+    public ?array $flaggedWords = null;
+    public ?bool $isProfanity = null;
     public string $message;
     public ?float $score = null;
 }

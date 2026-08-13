@@ -43,8 +43,8 @@ class ProfanityCheckerTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('PROFANITYCHECKER_TEST_LIVE');
-        $override = self::getenv('PROFANITYCHECKER_TEST_OVERRIDE');
+        $live = self::getenv('PROFANITY_CHECKER_TEST_LIVE');
+        $override = self::getenv('PROFANITY_CHECKER_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class ProfanityCheckerTestRunner
             }
         }
 
-        $explain = self::getenv('PROFANITYCHECKER_TEST_EXPLAIN');
+        $explain = self::getenv('PROFANITY_CHECKER_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['PROFANITYCHECKER_TEST_EXPLAIN'] = $explain;
+            $m['PROFANITY_CHECKER_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

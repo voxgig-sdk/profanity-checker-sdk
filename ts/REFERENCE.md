@@ -116,8 +116,8 @@ const check_profanity = client.CheckProfanity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | `any[]` | No |  |
-| `is_profanity` | `boolean` | No |  |
+| `flaggedWords` | `any[]` | No |  |
+| `isProfanity` | `boolean` | No |  |
 | `message` | `string` | Yes |  |
 | `score` | `number` | No |  |
 

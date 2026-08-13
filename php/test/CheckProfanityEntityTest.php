@@ -33,7 +33,7 @@ class CheckProfanityEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set PROFANITY_CHECKER_TEST_CHECK_PROFANITY_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -44,7 +44,7 @@ class CheckProfanityEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.check_profanity"), "check_profanity_ref01"));
 
         $check_profanity_ref01_data_result = $check_profanity_ref01_ent->create($check_profanity_ref01_data, null);
-        $check_profanity_ref01_data = Helpers::to_map($check_profanity_ref01_data_result);
+        $check_profanity_ref01_data = Helpers::to_map(is_object($check_profanity_ref01_data_result) && method_exists($check_profanity_ref01_data_result, 'data_get') ? $check_profanity_ref01_data_result->data_get() : $check_profanity_ref01_data_result);
         $this->assertNotNull($check_profanity_ref01_data);
 
     }
@@ -72,22 +72,22 @@ function check_profanity_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID");
+    $entid_env_raw = getenv("PROFANITY_CHECKER_TEST_CHECK_PROFANITY_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID" => $idmap,
-        "PROFANITYCHECKER_TEST_LIVE" => "FALSE",
-        "PROFANITYCHECKER_TEST_EXPLAIN" => "FALSE",
+        "PROFANITY_CHECKER_TEST_CHECK_PROFANITY_ENTID" => $idmap,
+        "PROFANITY_CHECKER_TEST_LIVE" => "FALSE",
+        "PROFANITY_CHECKER_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["PROFANITYCHECKER_TEST_CHECK_PROFANITY_ENTID"]);
+        $env["PROFANITY_CHECKER_TEST_CHECK_PROFANITY_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["PROFANITYCHECKER_TEST_LIVE"] === "TRUE") {
+    if ($env["PROFANITY_CHECKER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -96,13 +96,13 @@ function check_profanity_basic_setup($extra)
         $client = new ProfanityCheckerSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["PROFANITYCHECKER_TEST_LIVE"] === "TRUE";
+    $live = $env["PROFANITY_CHECKER_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["PROFANITYCHECKER_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["PROFANITY_CHECKER_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

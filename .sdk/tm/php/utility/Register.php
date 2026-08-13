@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ ProfanityCheckerUtility::setRegistrar(function (ProfanityCheckerUtility $u): voi
     $u->prepare_params = [ProfanityCheckerPrepareParams::class, 'call'];
     $u->prepare_path = [ProfanityCheckerPreparePath::class, 'call'];
     $u->prepare_query = [ProfanityCheckerPrepareQuery::class, 'call'];
+    $u->graphql_body = [ProfanityCheckerGraphql::class, 'body'];
+    $u->graphql_errors = [ProfanityCheckerGraphql::class, 'errors'];
     $u->result_basic = [ProfanityCheckerResultBasic::class, 'call'];
     $u->result_body = [ProfanityCheckerResultBody::class, 'call'];
     $u->result_headers = [ProfanityCheckerResultHeaders::class, 'call'];

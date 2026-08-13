@@ -213,9 +213,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local check_profanity, err = client:CheckProfanity():load()
+    local check_profanity, err = client:CheckProfanity():list()
     if err then error(err) end
-    -- check_profanity is the loaded record
+    -- check_profanity is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -226,8 +226,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `flagged_word` |  |
-| `is_profanity` |  |
+| `flaggedWords` |  |
+| `isProfanity` |  |
 | `message` |  |
 | `score` |  |
 
@@ -254,8 +254,8 @@ Create an instance: `local check_profanity = client:CheckProfanity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flagged_word` | `table` |  |
-| `is_profanity` | `boolean` |  |
+| `flaggedWords` | `table` |  |
+| `isProfanity` | `boolean` |  |
 | `message` | `string` |  |
 | `score` | `number` |  |
 

@@ -26,8 +26,8 @@ import {
 describe('CheckProfanityEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PROFANITYCHECKER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PROFANITYCHECKER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PROFANITY_CHECKER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PROFANITY_CHECKER_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ProfanityCheckerSDK.test()
@@ -62,7 +62,7 @@ describe('CheckProfanityEntity', async () => {
     const check_profanity_ref01_ent = client.CheckProfanity()
     let check_profanity_ref01_data = setup.data.new.check_profanity['check_profanity_ref01']
 
-    check_profanity_ref01_data = await check_profanity_ref01_ent.create(check_profanity_ref01_data)
+    check_profanity_ref01_data = (await check_profanity_ref01_ent.create(check_profanity_ref01_data)).data()
     assert(null != check_profanity_ref01_data)
 
 

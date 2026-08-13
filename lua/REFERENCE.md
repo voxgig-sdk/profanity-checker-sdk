@@ -90,8 +90,8 @@ local check_profanity = client:CheckProfanity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | `table` | No |  |
-| `is_profanity` | `boolean` | No |  |
+| `flaggedWords` | `table` | No |  |
+| `isProfanity` | `boolean` | No |  |
 | `message` | `string` | Yes |  |
 | `score` | `number` | No |  |
 

@@ -7,14 +7,14 @@
 -- edit by hand.
 
 ---@class CheckProfanity
----@field flagged_word? table
----@field is_profanity? boolean
+---@field flaggedWords? table
+---@field isProfanity? boolean
 ---@field message string
 ---@field score? number
 
 ---@class CheckProfanityCreateData
----@field flagged_word? table
----@field is_profanity? boolean
+---@field flaggedWords? table
+---@field isProfanity? boolean
 ---@field message string
 ---@field score? number
 

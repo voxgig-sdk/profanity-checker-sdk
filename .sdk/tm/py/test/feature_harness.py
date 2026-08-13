@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ProfanityCheckerControl
-from core.error import ProfanityCheckerError
-from core.result import ProfanityCheckerResult
-from core.spec import ProfanityCheckerSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import ProfanityCheckerControl
+from projectname_sdk.core.error import ProfanityCheckerError
+from projectname_sdk.core.result import ProfanityCheckerResult
+from projectname_sdk.core.spec import ProfanityCheckerSpec
 
 
 # True when this SDK was generated with the named feature.

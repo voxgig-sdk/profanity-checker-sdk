@@ -92,8 +92,8 @@ $check_profanity = $client->CheckProfanity();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flagged_word` | `array` | No |  |
-| `is_profanity` | `bool` | No |  |
+| `flaggedWords` | `array` | No |  |
+| `isProfanity` | `bool` | No |  |
 | `message` | `string` | Yes |  |
 | `score` | `float` | No |  |
 

@@ -36,7 +36,7 @@ const client = new ProfanityCheckerSDK()
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created CheckProfanity
+// Create — returns the created CheckProfanity ENTITY (.data() for the record)
 const created = await client.CheckProfanity().create({
   message: 'example_message',
 })
@@ -118,7 +118,8 @@ Create a mock client for unit testing — no server required:
 const client = ProfanityCheckerSDK.test()
 
 const checkprofanity = await client.CheckProfanity().create({ message: 'example_message' })
-// checkprofanity is a bare entity populated with mock response data
+// checkprofanity is the entity, populated with mock response data
+// — call checkprofanity.data() for the record itself
 console.log(checkprofanity)
 ```
 
@@ -281,8 +282,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `flagged_word` |  |
-| `is_profanity` |  |
+| `flaggedWords` |  |
+| `isProfanity` |  |
 | `message` |  |
 | `score` |  |
 
@@ -309,8 +310,8 @@ Create an instance: `const check_profanity = client.CheckProfanity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flagged_word` | `any[]` |  |
-| `is_profanity` | `boolean` |  |
+| `flaggedWords` | `any[]` |  |
+| `isProfanity` | `boolean` |  |
 | `message` | `string` |  |
 | `score` | `number` |  |
 

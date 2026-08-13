@@ -32,14 +32,14 @@ class ProfanityCheckerConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'flagged_word',
+              'name' => 'flaggedWords',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
             ],
             [
               'active' => true,
-              'name' => 'is_profanity',
+              'name' => 'isProfanity',
               'req' => false,
               'type' => '`$BOOLEAN`',
               'index$' => 1,
@@ -68,6 +68,7 @@ class ProfanityCheckerConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/',
                   'parts' => [],

@@ -33,7 +33,7 @@ client = ProfanityCheckerSDK.new
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created CheckProfanity record.
+# create returns the ENTITY — call data_get for the created CheckProfanity record.
 created = client.CheckProfanity.create({ "message" => "example_message" })
 
 ```
@@ -113,7 +113,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ProfanityCheckerSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 checkprofanity = client.CheckProfanity.create({ "message" => "example" })
 puts checkprofanity
 ```
@@ -230,8 +231,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `flagged_word` |  |
-| `is_profanity` |  |
+| `flaggedWords` |  |
+| `isProfanity` |  |
 | `message` |  |
 | `score` |  |
 
@@ -258,8 +259,8 @@ Create an instance: `check_profanity = client.CheckProfanity`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flagged_word` | `Array` |  |
-| `is_profanity` | `Boolean` |  |
+| `flaggedWords` | `Array` |  |
+| `isProfanity` | `Boolean` |  |
 | `message` | `String` |  |
 | `score` | `Float` |  |
 

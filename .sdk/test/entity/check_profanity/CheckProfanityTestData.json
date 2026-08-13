@@ -2,22 +2,22 @@
   "existing": {
     "check_profanity": {
       "CHECK_PROFANITY00": {
-        "flagged_word": [],
-        "is_profanity": false,
+        "flaggedWords": [],
+        "isProfanity": false,
         "message": "s2a",
         "score": 43,
         "id": "CHECK_PROFANITY00"
       },
       "CHECK_PROFANITY01": {
-        "flagged_word": [],
-        "is_profanity": false,
+        "flaggedWords": [],
+        "isProfanity": false,
         "message": "s52",
         "score": 83,
         "id": "CHECK_PROFANITY01"
       },
       "CHECK_PROFANITY02": {
-        "flagged_word": [],
-        "is_profanity": false,
+        "flaggedWords": [],
+        "isProfanity": false,
         "message": "s7a",
         "score": 123,
         "id": "CHECK_PROFANITY02"
@@ -27,8 +27,8 @@
   "new": {
     "check_profanity": {
       "check_profanity_ref01": {
-        "flagged_word": [],
-        "is_profanity": false,
+        "flaggedWords": [],
+        "isProfanity": false,
         "message": "sa2",
         "score": 163
       }
