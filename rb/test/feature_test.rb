@@ -15,7 +15,7 @@ require_relative "../ProfanityChecker_sdk"
 module ProfanityCheckerFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ProfanityCheckerConfig.make_config["feature"]
+    f = ProfanityCheckerConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

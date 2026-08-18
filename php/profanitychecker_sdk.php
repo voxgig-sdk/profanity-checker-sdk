@@ -40,7 +40,7 @@ class ProfanityCheckerSDK
         $utility = new ProfanityCheckerUtility();
         $this->_utility = $utility;
 
-        $config = ProfanityCheckerConfig::make_config();
+        $config = ProfanityCheckerConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

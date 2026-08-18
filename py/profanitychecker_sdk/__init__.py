@@ -23,8 +23,8 @@ class ProfanityCheckerSDK:
         utility = ProfanityCheckerUtility()
         self._utility = utility
 
-        from profanitychecker_sdk.config import make_config
-        config = make_config()
+        from profanitychecker_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

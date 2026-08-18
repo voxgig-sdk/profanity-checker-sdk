@@ -28,7 +28,7 @@ class ProfanityCheckerSDK
     utility = ProfanityCheckerUtility.new
     @_utility = utility
 
-    config = ProfanityCheckerConfig.make_config
+    config = ProfanityCheckerConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
