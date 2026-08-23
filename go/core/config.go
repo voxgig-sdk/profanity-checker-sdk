@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "ProfanityChecker",
+			"slug": "profanity-checker",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,19 +36,23 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "flaggedWords",
+						"short": "List of words that were flagged as profanity",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "isProfanity",
+						"short": "Indicates whether profanity was detected in the message",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "message",
 						"req": true,
+						"short": "The text message to check for profanity",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "score",
+						"short": "Confidence score for profanity detection",
 						"type": "`$NUMBER`",
 					},
 				},

@@ -116,10 +116,10 @@ const check_profanity = client.CheckProfanity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flaggedWords` | `any[]` | No |  |
-| `isProfanity` | `boolean` | No |  |
-| `message` | `string` | Yes |  |
-| `score` | `number` | No |  |
+| `flaggedWords` | `any[]` | No | List of words that were flagged as profanity |
+| `isProfanity` | `boolean` | No | Indicates whether profanity was detected in the message |
+| `message` | `string` | Yes | The text message to check for profanity |
+| `score` | `number` | No | Confidence score for profanity detection |
 
 ### Operations
 

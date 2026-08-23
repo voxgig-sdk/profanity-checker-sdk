@@ -98,10 +98,10 @@ fmt.Println(checkProfanity.GetName()) // "check_profanity"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flaggedWords` | `[]any` | No |  |
-| `isProfanity` | `bool` | No |  |
-| `message` | `string` | Yes |  |
-| `score` | `float64` | No |  |
+| `flaggedWords` | `[]any` | No | List of words that were flagged as profanity |
+| `isProfanity` | `bool` | No | Indicates whether profanity was detected in the message |
+| `message` | `string` | Yes | The text message to check for profanity |
+| `score` | `float64` | No | Confidence score for profanity detection |
 
 ### Operations
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "ProfanityChecker",
+            "slug": "profanity-checker",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,19 +53,23 @@ def make_config():
         "fields": [
           {
             "name": "flaggedWords",
+            "short": "List of words that were flagged as profanity",
             "type": "`$ARRAY`",
           },
           {
             "name": "isProfanity",
+            "short": "Indicates whether profanity was detected in the message",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "message",
             "req": True,
+            "short": "The text message to check for profanity",
             "type": "`$STRING`",
           },
           {
             "name": "score",
+            "short": "Confidence score for profanity detection",
             "type": "`$NUMBER`",
           },
         ],

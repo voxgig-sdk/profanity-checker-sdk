@@ -241,10 +241,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `flaggedWords` |  |
-| `isProfanity` |  |
-| `message` |  |
-| `score` |  |
+| `flaggedWords` | List of words that were flagged as profanity |
+| `isProfanity` | Indicates whether profanity was detected in the message |
+| `message` | The text message to check for profanity |
+| `score` | Confidence score for profanity detection |
 
 Operations: Create.
 
@@ -269,10 +269,10 @@ Create an instance: `$check_profanity = $client->CheckProfanity();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flaggedWords` | `array` |  |
-| `isProfanity` | `bool` |  |
-| `message` | `string` |  |
-| `score` | `float` |  |
+| `flaggedWords` | `array` | List of words that were flagged as profanity |
+| `isProfanity` | `bool` | Indicates whether profanity was detected in the message |
+| `message` | `string` | The text message to check for profanity |
+| `score` | `float` | Confidence score for profanity detection |
 
 #### Example: Create
 

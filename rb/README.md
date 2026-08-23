@@ -231,10 +231,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `flaggedWords` |  |
-| `isProfanity` |  |
-| `message` |  |
-| `score` |  |
+| `flaggedWords` | List of words that were flagged as profanity |
+| `isProfanity` | Indicates whether profanity was detected in the message |
+| `message` | The text message to check for profanity |
+| `score` | Confidence score for profanity detection |
 
 Operations: Create.
 
@@ -259,10 +259,10 @@ Create an instance: `check_profanity = client.CheckProfanity`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flaggedWords` | `Array` |  |
-| `isProfanity` | `Boolean` |  |
-| `message` | `String` |  |
-| `score` | `Float` |  |
+| `flaggedWords` | `Array` | List of words that were flagged as profanity |
+| `isProfanity` | `Boolean` | Indicates whether profanity was detected in the message |
+| `message` | `String` | The text message to check for profanity |
+| `score` | `Float` | Confidence score for profanity detection |
 
 #### Example: Create
 

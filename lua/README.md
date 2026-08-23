@@ -226,10 +226,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `flaggedWords` |  |
-| `isProfanity` |  |
-| `message` |  |
-| `score` |  |
+| `flaggedWords` | List of words that were flagged as profanity |
+| `isProfanity` | Indicates whether profanity was detected in the message |
+| `message` | The text message to check for profanity |
+| `score` | Confidence score for profanity detection |
 
 Operations: Create.
 
@@ -254,10 +254,10 @@ Create an instance: `local check_profanity = client:CheckProfanity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flaggedWords` | `table` |  |
-| `isProfanity` | `boolean` |  |
-| `message` | `string` |  |
-| `score` | `number` |  |
+| `flaggedWords` | `table` | List of words that were flagged as profanity |
+| `isProfanity` | `boolean` | Indicates whether profanity was detected in the message |
+| `message` | `string` | The text message to check for profanity |
+| `score` | `number` | Confidence score for profanity detection |
 
 #### Example: Create
 

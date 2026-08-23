@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -282,10 +282,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `flaggedWords` |  |
-| `isProfanity` |  |
-| `message` |  |
-| `score` |  |
+| `flaggedWords` | List of words that were flagged as profanity |
+| `isProfanity` | Indicates whether profanity was detected in the message |
+| `message` | The text message to check for profanity |
+| `score` | Confidence score for profanity detection |
 
 Operations: create.
 
@@ -310,10 +310,10 @@ Create an instance: `const check_profanity = client.CheckProfanity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flaggedWords` | `any[]` |  |
-| `isProfanity` | `boolean` |  |
-| `message` | `string` |  |
-| `score` | `number` |  |
+| `flaggedWords` | `any[]` | List of words that were flagged as profanity |
+| `isProfanity` | `boolean` | Indicates whether profanity was detected in the message |
+| `message` | `string` | The text message to check for profanity |
+| `score` | `number` | Confidence score for profanity detection |
 
 #### Example: Create
 

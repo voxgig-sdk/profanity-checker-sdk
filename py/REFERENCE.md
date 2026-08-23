@@ -87,10 +87,10 @@ check_profanity = client.CheckProfanity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flaggedWords` | `list` | No |  |
-| `isProfanity` | `bool` | No |  |
-| `message` | `str` | Yes |  |
-| `score` | `float` | No |  |
+| `flaggedWords` | `list` | No | List of words that were flagged as profanity |
+| `isProfanity` | `bool` | No | Indicates whether profanity was detected in the message |
+| `message` | `str` | Yes | The text message to check for profanity |
+| `score` | `float` | No | Confidence score for profanity detection |
 
 ### Operations
 

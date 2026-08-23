@@ -6,7 +6,7 @@ The Golang SDK for the ProfanityChecker API — an entity-oriented client using 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.CheckProfanity(nil)` — each with the same small set of operations (`Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,10 +258,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"flaggedWords"` |  |
-| `"isProfanity"` |  |
-| `"message"` |  |
-| `"score"` |  |
+| `"flaggedWords"` | List of words that were flagged as profanity |
+| `"isProfanity"` | Indicates whether profanity was detected in the message |
+| `"message"` | The text message to check for profanity |
+| `"score"` | Confidence score for profanity detection |
 
 Operations: Create.
 
@@ -286,10 +286,10 @@ Create an instance: `checkProfanity := client.CheckProfanity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `flaggedWords` | `[]any` |  |
-| `isProfanity` | `bool` |  |
-| `message` | `string` |  |
-| `score` | `float64` |  |
+| `flaggedWords` | `[]any` | List of words that were flagged as profanity |
+| `isProfanity` | `bool` | Indicates whether profanity was detected in the message |
+| `message` | `string` | The text message to check for profanity |
+| `score` | `float64` | Confidence score for profanity detection |
 
 #### Example: Create
 

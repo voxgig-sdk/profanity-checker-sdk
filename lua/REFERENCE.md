@@ -90,10 +90,10 @@ local check_profanity = client:CheckProfanity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flaggedWords` | `table` | No |  |
-| `isProfanity` | `boolean` | No |  |
-| `message` | `string` | Yes |  |
-| `score` | `number` | No |  |
+| `flaggedWords` | `table` | No | List of words that were flagged as profanity |
+| `isProfanity` | `boolean` | No | Indicates whether profanity was detected in the message |
+| `message` | `string` | Yes | The text message to check for profanity |
+| `score` | `number` | No | Confidence score for profanity detection |
 
 ### Operations
 

@@ -8,21 +8,25 @@ main: kit: entity: check_profanity: {
     {
       name: "flaggedWords"
       req: false
+      short: "List of words that were flagged as profanity"
       type: "`$ARRAY`"
     }
     {
       name: "isProfanity"
       req: false
+      short: "Indicates whether profanity was detected in the message"
       type: "`$BOOLEAN`"
     }
     {
       name: "message"
       req: true
+      short: "The text message to check for profanity"
       type: "`$STRING`"
     }
     {
       name: "score"
       req: false
+      short: "Confidence score for profanity detection"
       type: "`$NUMBER`"
     }
   ]

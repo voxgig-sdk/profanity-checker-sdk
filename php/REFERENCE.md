@@ -92,10 +92,10 @@ $check_profanity = $client->CheckProfanity();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `flaggedWords` | `array` | No |  |
-| `isProfanity` | `bool` | No |  |
-| `message` | `string` | Yes |  |
-| `score` | `float` | No |  |
+| `flaggedWords` | `array` | No | List of words that were flagged as profanity |
+| `isProfanity` | `bool` | No | Indicates whether profanity was detected in the message |
+| `message` | `string` | Yes | The text message to check for profanity |
+| `score` | `float` | No | Confidence score for profanity detection |
 
 ### Operations
 
