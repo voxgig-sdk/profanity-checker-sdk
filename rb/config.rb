@@ -60,6 +60,7 @@ module ProfanityCheckerConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "score",
               "short" => "Confidence score for profanity detection",
               "type" => "`$NUMBER`",
@@ -76,12 +77,13 @@ module ProfanityCheckerConfig
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/",
-                  "parts" => [],
+                  "segments" => [],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [],
                 },
               ],
             },

@@ -24,6 +24,7 @@ main: kit: entity: check_profanity: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "score"
       req: false
       short: "Confidence score for profanity detection"
