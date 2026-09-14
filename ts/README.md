@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ProfanityCheckerSDK } from '@voxgig-sdk/profanity-checker'
+import { ProfanityCheckerSDK } from '@voxgig-sdk/profanity-checker-sdk'
 
 const client = new ProfanityCheckerSDK()
 ```
@@ -406,7 +406,7 @@ profanity-checker/
 Import the SDK from the package root:
 
 ```ts
-import { ProfanityCheckerSDK } from '@voxgig-sdk/profanity-checker'
+import { ProfanityCheckerSDK } from '@voxgig-sdk/profanity-checker-sdk'
 ```
 
 ### Entity state

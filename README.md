@@ -107,7 +107,7 @@ local result, err = client:CheckProfanity():create({ message = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/profanity-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-checker-sdk/releases) |
+| TypeScript | `@voxgig-sdk/profanity-checker-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-checker-sdk/releases) |
 | Python | `voxgig-sdk-profanity-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-checker-sdk/releases) |
 | PHP | `voxgig-sdk/profanity-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-checker-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/profanity-checker-sdk/go` | `go get github.com/voxgig-sdk/profanity-checker-sdk/go@latest` |
@@ -121,7 +121,7 @@ local result, err = client:CheckProfanity():create({ message = "example" })
 ### TypeScript
 
 ```ts
-import { ProfanityCheckerSDK } from '@voxgig-sdk/profanity-checker'
+import { ProfanityCheckerSDK } from '@voxgig-sdk/profanity-checker-sdk'
 
 const client = new ProfanityCheckerSDK()
 
