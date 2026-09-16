@@ -38,6 +38,12 @@ main: kit: entity: check_profanity: {
       name: "create"
       points: [
         {
+          contract: {
+            id: "POST /"
+            json: "{\"operationId\":\"checkProfanity\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"examples\":{\"clean\":{\"summary\":\"Clean message example\",\"value\":{\"message\":\"This is a nice clean message\"}},\"profane\":{\"summary\":\"Profane message example\",\"value\":{\"message\":\"Hate speech f@#k!ng sucks\"}}},\"schema\":{\"properties\":{\"message\":{\"description\":\"The text message to check for profanity\",\"example\":\"This is a sample message to check\",\"type\":\"string\"}},\"required\":[\"message\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"clean\":{\"summary\":\"Clean message result\",\"value\":{\"flaggedWords\":[],\"isProfanity\":false,\"score\":0}},\"profane\":{\"summary\":\"Profane message result\",\"value\":{\"flaggedWords\":[\"f@#k\"],\"isProfanity\":true,\"score\":0.95}}},\"schema\":{\"properties\":{\"flaggedWords\":{\"description\":\"List of words that were flagged as profanity\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"isProfanity\":{\"description\":\"Indicates whether profanity was detected in the message\",\"type\":\"boolean\"},\"score\":{\"description\":\"Confidence score for profanity detection\",\"format\":\"float\",\"type\":\"number\"}},\"type\":\"object\"}}},\"description\":\"Successful profanity check response\"},\"400\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Message field is required\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid input\"},\"500\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Internal server error\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/"
           transform: {

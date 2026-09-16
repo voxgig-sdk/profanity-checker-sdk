@@ -1,12 +1,18 @@
 # ProfanityChecker SDK feature factory
 
 from profanitychecker_sdk.feature.base_feature import ProfanityCheckerBaseFeature
+from profanitychecker_sdk.feature.ratelimit_feature import ProfanityCheckerRatelimitFeature
+from profanitychecker_sdk.feature.retry_feature import ProfanityCheckerRetryFeature
 from profanitychecker_sdk.feature.test_feature import ProfanityCheckerTestFeature
+from profanitychecker_sdk.feature.timeout_feature import ProfanityCheckerTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ProfanityCheckerBaseFeature(),
+    "ratelimit": lambda: ProfanityCheckerRatelimitFeature(),
+    "retry": lambda: ProfanityCheckerRetryFeature(),
     "test": lambda: ProfanityCheckerTestFeature(),
+    "timeout": lambda: ProfanityCheckerTimeoutFeature(),
 }
 
 
