@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      check_profanity: {
-      },
-
+        check_profanity: {
+        },
+  
     }
   }
 
