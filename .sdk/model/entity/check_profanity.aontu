@@ -1,0 +1,63 @@
+# Entity: check_profanity
+
+main: kit: entity: check_profanity: {
+
+  alias: field: {}
+
+  fields: {
+    flaggedWords: {
+      h: "Flagged Words"
+      n: "flaggedWords"
+      r: false
+      sh: "List of words that were flagged as profanity"
+      t: "`$ARRAY`"
+    }
+    isProfanity: {
+      h: "Is Profanity"
+      n: "isProfanity"
+      r: false
+      sh: "Indicates whether profanity was detected in the message"
+      t: "`$BOOLEAN`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      sh: "The text message to check for profanity"
+      t: "`$STRING`"
+    }
+    score: {
+      fo: "float"
+      h: "Score"
+      n: "score"
+      r: false
+      sh: "Confidence score for profanity detection"
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "check_profanity"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/"
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

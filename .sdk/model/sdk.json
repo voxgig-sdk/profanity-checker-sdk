@@ -24,43 +24,113 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "check_profanity": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "flaggedWords",
-              "req": false,
-              "short": "List of words that were flagged as profanity",
-              "type": "`$ARRAY`"
+          "fields": {
+            "flaggedWords": {
+              "a": true,
+              "h": "Flagged Words",
+              "n": "flaggedWords",
+              "r": false,
+              "sh": "List of words that were flagged as profanity",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "isProfanity",
-              "req": false,
-              "short": "Indicates whether profanity was detected in the message",
-              "type": "`$BOOLEAN`"
+            "isProfanity": {
+              "a": true,
+              "h": "Is Profanity",
+              "n": "isProfanity",
+              "r": false,
+              "sh": "Indicates whether profanity was detected in the message",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "message",
-              "req": true,
-              "short": "The text message to check for profanity",
-              "type": "`$STRING`"
+            "message": {
+              "a": true,
+              "h": "Message",
+              "n": "message",
+              "r": true,
+              "sh": "The text message to check for profanity",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "score",
-              "req": false,
-              "short": "Confidence score for profanity detection",
-              "type": "`$NUMBER`"
+            "score": {
+              "a": true,
+              "fo": "float",
+              "h": "Score",
+              "n": "score",
+              "r": false,
+              "sh": "Confidence score for profanity detection",
+              "t": "`$NUMBER`"
             }
-          ],
+          },
           "name": "check_profanity",
           "op": {
             "create": {
@@ -68,20 +138,20 @@
               "name": "create",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /",
-                    "json": "{\"operationId\":\"checkProfanity\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"examples\":{\"clean\":{\"summary\":\"Clean message example\",\"value\":{\"message\":\"This is a nice clean message\"}},\"profane\":{\"summary\":\"Profane message example\",\"value\":{\"message\":\"Hate speech f@#k!ng sucks\"}}},\"schema\":{\"properties\":{\"message\":{\"description\":\"The text message to check for profanity\",\"example\":\"This is a sample message to check\",\"type\":\"string\"}},\"required\":[\"message\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"clean\":{\"summary\":\"Clean message result\",\"value\":{\"flaggedWords\":[],\"isProfanity\":false,\"score\":0}},\"profane\":{\"summary\":\"Profane message result\",\"value\":{\"flaggedWords\":[\"f@#k\"],\"isProfanity\":true,\"score\":0.95}}},\"schema\":{\"properties\":{\"flaggedWords\":{\"description\":\"List of words that were flagged as profanity\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"isProfanity\":{\"description\":\"Indicates whether profanity was detected in the message\",\"type\":\"boolean\"},\"score\":{\"description\":\"Confidence score for profanity detection\",\"format\":\"float\",\"type\":\"number\"}},\"type\":\"object\"}}},\"description\":\"Successful profanity check response\"},\"400\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Message field is required\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid input\"},\"500\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Internal server error\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/",
-                  "segments": [],
-                  "select": {},
-                  "transform": {
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/",
+                  "q": {},
+                  "r": {},
+                  "s": [],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -510,15 +580,15 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "check_profanity_ref01"
               },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
             }
           ]
         }
