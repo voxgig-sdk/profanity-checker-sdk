@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 ProfanityCheckerUtility::setRegistrar(function (ProfanityCheckerUtility $u): void {
     $u->clean = [ProfanityCheckerClean::class, 'call'];
+    $u->clean_add = [ProfanityCheckerClean::class, 'add'];
+    $u->clean_explain = [ProfanityCheckerDone::class, 'clean_explain'];
     $u->done = [ProfanityCheckerDone::class, 'call'];
     $u->make_error = [ProfanityCheckerMakeError::class, 'call'];
     $u->feature_add = [ProfanityCheckerFeatureAdd::class, 'call'];

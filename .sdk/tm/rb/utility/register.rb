@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 ProfanityCheckerUtility.registrar = ->(u) {
   u.clean = ProfanityCheckerUtilities::Clean
+  u.clean_add = ProfanityCheckerUtilities::CleanAdd
+  u.clean_explain = ProfanityCheckerUtilities::CleanExplain
   u.done = ProfanityCheckerUtilities::Done
   u.make_error = ProfanityCheckerUtilities::MakeError
   u.feature_add = ProfanityCheckerUtilities::FeatureAdd
