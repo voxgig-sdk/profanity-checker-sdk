@@ -26,11 +26,5 @@ class CheckProfanity(CheckProfanityRequired, total=False):
     score: float
 
 
-class CheckProfanityCreateDataRequired(TypedDict):
+class CheckProfanityCreateData(TypedDict):
     message: str
-
-
-class CheckProfanityCreateData(CheckProfanityCreateDataRequired, total=False):
-    flaggedWords: list
-    isProfanity: bool
-    score: float

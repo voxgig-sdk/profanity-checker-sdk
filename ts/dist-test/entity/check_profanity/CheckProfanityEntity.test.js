@@ -54,6 +54,14 @@ const utility_1 = require("../../utility");
         const ent = testsdk.CheckProfanity();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.ProfanityCheckerSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.CheckProfanity().create({ "message": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.PROFANITY_CHECKER_TEST_LIVE;
         for (const op of ['create']) {
@@ -62,7 +70,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "flaggedWords": { "a": true, "h": "Flagged Words", "n": "flaggedWords", "r": false, "sh": "List of words that were flagged as profanity", "t": "`$ARRAY`", "key$": "flaggedWords", "index$": 0 }, "isProfanity": { "a": true, "h": "Is Profanity", "n": "isProfanity", "r": false, "sh": "Indicates whether profanity was detected in the message", "t": "`$BOOLEAN`", "key$": "isProfanity", "index$": 1 }, "message": { "a": true, "h": "Message", "n": "message", "r": true, "sh": "The text message to check for profanity", "t": "`$STRING`", "key$": "message", "index$": 2 }, "score": { "a": true, "fo": "float", "h": "Score", "n": "score", "r": false, "sh": "Confidence score for profanity detection", "t": "`$NUMBER`", "key$": "score", "index$": 3 } }, "name": "check_profanity", "op": { "create": { "input": "data", "name": "create", "points": [{ "a": true, "co": { "id": "POST /", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "POST", "o": "/", "q": {}, "r": {}, "s": [], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "create" } }, "relations": { "ancestors": [] }, "key$": "check_profanity", "name__orig": "check_profanity", "Name": "CheckProfanity", "name_": "check_profanity", "name-": "check-profanity", "NAME": "CHECK_PROFANITY", "index$": 0 }, { "active": true, "entity": "check_profanity", "key$": "BasicCheckProfanityFlow", "kind": "basic", "name": "BasicCheckProfanityFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "check_profanity_ref01" }, "m": {}, "o": "create", "s": [], "v": [], "index$": 0 }] }, 'CheckProfanity', { "POST /": { "protocol": "http", "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["message"], "properties": { "message": { "type": "string", "description": "The text message to check for profanity", "example": "This is a sample message to check", "key$": "message" } }, "index$": 1 }, "examples": { "clean": { "summary": "Clean message example", "value": { "message": "This is a nice clean message" } }, "profane": { "summary": "Profane message example", "value": { "message": "Hate speech f@#k!ng sucks" } } } } } }, "parameters": [] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "flaggedWords": { "a": true, "h": "Flagged Words", "n": "flaggedWords", "r": false, "sh": "List of words that were flagged as profanity", "t": "`$ARRAY`", "key$": "flaggedWords", "index$": 0 }, "isProfanity": { "a": true, "h": "Is Profanity", "n": "isProfanity", "r": false, "sh": "Indicates whether profanity was detected in the message", "t": "`$BOOLEAN`", "key$": "isProfanity", "index$": 1 }, "message": { "a": true, "h": "Message", "n": "message", "r": true, "sh": "The text message to check for profanity", "t": "`$STRING`", "key$": "message", "index$": 2 }, "score": { "a": true, "fo": "float", "h": "Score", "n": "score", "r": false, "sh": "Confidence score for profanity detection", "t": "`$NUMBER`", "key$": "score", "index$": 3 } }, "name": "check_profanity", "op": { "create": { "input": "data", "name": "create", "points": [{ "a": true, "bf": ["message"], "co": { "id": "POST /", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "POST", "o": "/", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "create" } }, "relations": { "ancestors": [] }, "key$": "check_profanity", "name__orig": "check_profanity", "Name": "CheckProfanity", "name_": "check_profanity", "name-": "check-profanity", "NAME": "CHECK_PROFANITY", "index$": 0 }, { "active": true, "entity": "check_profanity", "key$": "BasicCheckProfanityFlow", "kind": "basic", "name": "BasicCheckProfanityFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "check_profanity_ref01" }, "m": {}, "o": "create", "s": [], "v": [], "index$": 0 }] }, 'CheckProfanity', { "POST /": { "protocol": "http", "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "required": ["message"], "properties": { "message": { "type": "string", "description": "The text message to check for profanity", "example": "This is a sample message to check", "key$": "message" } }, "index$": 1 }, "examples": { "clean": { "summary": "Clean message example", "value": { "message": "This is a nice clean message" } }, "profane": { "summary": "Profane message example", "value": { "message": "Hate speech f@#k!ng sucks" } } } } } }, "parameters": [] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -75,6 +83,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(null != check_profanity_ref01_data);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

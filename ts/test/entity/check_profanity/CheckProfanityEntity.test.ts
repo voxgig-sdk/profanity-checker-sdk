@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { ProfanityCheckerSDK, BaseFeature, stdutil } from '../../..'
+import { ProfanityCheckerSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('CheckProfanityEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = ProfanityCheckerSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.CheckProfanity().create({"message":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.PROFANITY_CHECKER_TEST_LIVE
@@ -51,7 +63,7 @@ describe('CheckProfanityEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"flaggedWords":{"a":true,"h":"Flagged Words","n":"flaggedWords","r":false,"sh":"List of words that were flagged as profanity","t":"`$ARRAY`","key$":"flaggedWords","index$":0},"isProfanity":{"a":true,"h":"Is Profanity","n":"isProfanity","r":false,"sh":"Indicates whether profanity was detected in the message","t":"`$BOOLEAN`","key$":"isProfanity","index$":1},"message":{"a":true,"h":"Message","n":"message","r":true,"sh":"The text message to check for profanity","t":"`$STRING`","key$":"message","index$":2},"score":{"a":true,"fo":"float","h":"Score","n":"score","r":false,"sh":"Confidence score for profanity detection","t":"`$NUMBER`","key$":"score","index$":3}},"name":"check_profanity","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/","q":{},"r":{},"s":[],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"}},"relations":{"ancestors":[]},"key$":"check_profanity","name__orig":"check_profanity","Name":"CheckProfanity","name_":"check_profanity","name-":"check-profanity","NAME":"CHECK_PROFANITY","index$":0}, {"active":true,"entity":"check_profanity","key$":"BasicCheckProfanityFlow","kind":"basic","name":"BasicCheckProfanityFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"check_profanity_ref01"},"m":{},"o":"create","s":[],"v":[],"index$":0}]}, 'CheckProfanity', {"POST /":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["message"],"properties":{"message":{"type":"string","description":"The text message to check for profanity","example":"This is a sample message to check","key$":"message"}},"index$":1},"examples":{"clean":{"summary":"Clean message example","value":{"message":"This is a nice clean message"}},"profane":{"summary":"Profane message example","value":{"message":"Hate speech f@#k!ng sucks"}}}}}},"parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"flaggedWords":{"a":true,"h":"Flagged Words","n":"flaggedWords","r":false,"sh":"List of words that were flagged as profanity","t":"`$ARRAY`","key$":"flaggedWords","index$":0},"isProfanity":{"a":true,"h":"Is Profanity","n":"isProfanity","r":false,"sh":"Indicates whether profanity was detected in the message","t":"`$BOOLEAN`","key$":"isProfanity","index$":1},"message":{"a":true,"h":"Message","n":"message","r":true,"sh":"The text message to check for profanity","t":"`$STRING`","key$":"message","index$":2},"score":{"a":true,"fo":"float","h":"Score","n":"score","r":false,"sh":"Confidence score for profanity detection","t":"`$NUMBER`","key$":"score","index$":3}},"name":"check_profanity","op":{"create":{"input":"data","name":"create","points":[{"a":true,"bf":["message"],"co":{"id":"POST /","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"}},"relations":{"ancestors":[]},"key$":"check_profanity","name__orig":"check_profanity","Name":"CheckProfanity","name_":"check_profanity","name-":"check-profanity","NAME":"CHECK_PROFANITY","index$":0}, {"active":true,"entity":"check_profanity","key$":"BasicCheckProfanityFlow","kind":"basic","name":"BasicCheckProfanityFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"check_profanity_ref01"},"m":{},"o":"create","s":[],"v":[],"index$":0}]}, 'CheckProfanity', {"POST /":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["message"],"properties":{"message":{"type":"string","description":"The text message to check for profanity","example":"This is a sample message to check","key$":"message"}},"index$":1},"examples":{"clean":{"summary":"Clean message example","value":{"message":"This is a nice clean message"}},"profane":{"summary":"Profane message example","value":{"message":"Hate speech f@#k!ng sucks"}}}}}},"parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('CheckProfanityEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

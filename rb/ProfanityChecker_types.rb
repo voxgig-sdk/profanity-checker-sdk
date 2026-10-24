@@ -31,22 +31,10 @@ CheckProfanity = Struct.new(
 
 # Request payload for CheckProfanity#create.
 #
-# @!attribute [rw] flaggedWords
-#   @return [Array, nil]
-#
-# @!attribute [rw] isProfanity
-#   @return [Boolean, nil]
-#
 # @!attribute [rw] message
 #   @return [String]
-#
-# @!attribute [rw] score
-#   @return [Float, nil]
 CheckProfanityCreateData = Struct.new(
-  :flaggedWords,
-  :isProfanity,
   :message,
-  :score,
   keyword_init: true
 )
 

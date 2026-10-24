@@ -13,9 +13,6 @@ export interface CheckProfanity {
 }
 
 export interface CheckProfanityCreateData {
-  flaggedWords?: any[]
-  isProfanity?: boolean
   message: string
-  score?: number
 }
 

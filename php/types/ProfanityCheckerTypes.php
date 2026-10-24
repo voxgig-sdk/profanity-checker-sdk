@@ -24,9 +24,6 @@ class CheckProfanity
 /** Request payload for CheckProfanity#create. */
 class CheckProfanityCreateData
 {
-    public ?array $flaggedWords = null;
-    public ?bool $isProfanity = null;
     public string $message;
-    public ?float $score = null;
 }
 

@@ -3,5 +3,16 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Check text for profanity (filter out bad words). A fast, free and open-source profanity filter for web apps. Much faster and cheaper to run than AI, pretty accurate, and 100% free &amp; open-source.",
+      "Confidence score for profanity detection",
+      "Indicates whether profanity was detected in the message",
+      "List of words that were flagged as profanity",
+      "Production server",
+      "Successful profanity check response",
+      "The text message to check for profanity"
+    ]
+  }
 }

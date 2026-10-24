@@ -18,10 +18,7 @@ type CheckProfanity struct {
 
 // CheckProfanityCreateData is the typed request payload for CheckProfanity.CreateTyped.
 type CheckProfanityCreateData struct {
-	FlaggedWords *[]any `json:"flaggedWords,omitempty"`
-	IsProfanity *bool `json:"isProfanity,omitempty"`
 	Message string `json:"message"`
-	Score *float64 `json:"score,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

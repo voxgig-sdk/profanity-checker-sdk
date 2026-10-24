@@ -12,6 +12,8 @@ type ProfanityCheckerError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewProfanityCheckerError(code string, msg string, ctx *Context) *ProfanityCheckerError {
@@ -21,7 +23,12 @@ func NewProfanityCheckerError(code string, msg string, ctx *Context) *ProfanityC
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *ProfanityCheckerError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *ProfanityCheckerError) Error() string {
@@ -35,6 +42,7 @@ func (e *ProfanityCheckerError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}
